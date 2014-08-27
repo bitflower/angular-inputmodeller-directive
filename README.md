@@ -10,3 +10,6 @@ Example of an input for entering valid table names:
 ```html
 <input type="text" ng-model="myName" ng-maxlength="25" bf-input-modeller bf-prepend-text="ABC_" bf-prevent-space="true" bf-upper-case="true" bf-alpha-underscore="true" ng-trim="false" id="txtName" class="form-control" placeholder="Name" />
 ```
+
+Renders to:
+![Prepros App](http://www.bitflower.net/keeponline/bfInputModeller_render.png)
