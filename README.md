@@ -16,10 +16,10 @@ Renders to:
 
 ![No errors](http://www.bitflower.net/keeponline/bfInputModeller_render.png)
 
-When you delete back to "ABC_" and reach the prepend text:
+When you delete back to "ABC_" and reach the prepend text which can't be deleted:
 
 ![Error prepend text](http://www.bitflower.net/keeponline/bfInputModeller_render_red1.png)
 
-When you enter lower case "test":
+When you enter "&%$test   !!!" the non alpha-numeric characters will be removed, inluding space, and the text will be uppercased:
 
 ![Error prepend text](http://www.bitflower.net/keeponline/bfInputModeller_render_blue1.png)
