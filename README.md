@@ -3,7 +3,7 @@ angular-inputmodeller-directive
 
 Directive to format / limit / prepend text to the entered input value BEFORE it goes to the model.
 
-Example for an input for entering valid table names:
+Example of an input for entering valid table names:
 - with a prepend text
 - uppercase formatting
 - and a max length of 25 characters:
