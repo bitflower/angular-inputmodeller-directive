@@ -12,4 +12,5 @@ Example of an input for entering valid table names:
 ```
 
 Renders to:
+
 ![Prepros App](http://www.bitflower.net/keeponline/bfInputModeller_render.png)
