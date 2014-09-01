@@ -2,7 +2,7 @@
 
 (function () {
 
-    var moduleName = 'net.bitflower.input';
+    var moduleName = 'net.bitflower.angular.input';
 
     angular.module(moduleName, []);
 
@@ -47,6 +47,9 @@
                                 modelCtrl.$setValidity("bf-prepend-text", false);
 
                             }
+                        } else {
+                            transformedInput = prependText;
+                            modelCtrl.$setValidity("bf-prepend-text", false);
                         }
                     }
 
@@ -78,7 +81,7 @@
                     //console.log(attrs);
                     //if (attrs.ngMaxlength != undefined && attrs.ngMaxlength != '' && transformedInput.length > parseInt(attrs.ngMaxlength)) {
                     //    transformedInput = transformedInput.substring(0, attrs.ngMaxlength);
-                    //}  
+                    //}
 
                     // Apply to model only when chars where prevented
                     if (transformedInput != inputValue) {
