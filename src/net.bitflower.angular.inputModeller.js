@@ -1,3 +1,11 @@
+// Copyright (c) 2014 All Right Reserved, http://bitflower.net/
+//
+// </copyright>
+// <author>Matthias Max</author>
+// <email>touch@bitflower.net</email>
+// <date>2014-09-01</date>
+// <version>0.0.2</version>
+
 "use strict";
 
 (function () {
