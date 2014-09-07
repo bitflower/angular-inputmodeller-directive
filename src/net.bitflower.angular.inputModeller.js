@@ -18,6 +18,8 @@
     // bf-prepend-text: Add text to the beginning of the value
     // bf-prevent-space: true = no space allowed
     // bf-upper-case: true = typed chars are trandformed to upper case
+    // bf-max-length: number = because this directive is not compatible with ngMaxLength
+    // bf-min-length: number = because this directive is not compatible with ngMinLength
     angular.module(moduleName).directive('bfInputModeller', function () {
         return {
             restrict: 'A',
@@ -37,6 +39,18 @@
                     }
 
                     var transformedInput = inputValue;
+
+                    // Max length
+                    if (attrs.bfMaxLength != undefined && attrs.bfMaxLength != '' && transformedInput.length > parseInt(attrs.bfMaxLength)) {
+                        transformedInput = transformedInput.substring(0, attrs.bfMaxLength);
+                    }
+
+                    // Min length
+                    if (attrs.bfMinLength != undefined && attrs.bfMinLength != '' && transformedInput.length < parseInt(attrs.bfMinLength)) {
+                        modelCtrl.$setValidity("bf-min-length", false);
+                    } else {
+                        modelCtrl.$setValidity("bf-min-length", true);
+                    }
 
                     // Prepend text
                     if (attrs.bfPrependText != undefined && attrs.bfPrependText != '') {
@@ -85,11 +99,6 @@
                     if (attrs.bfAlphaUnderscore != undefined && attrs.bfAlphaUnderscore != '') {
                         transformedInput = transformedInput.replace(/[^a-zA-Z0-9_]/gi, '');
                     }
-
-                    //console.log(attrs);
-                    //if (attrs.ngMaxlength != undefined && attrs.ngMaxlength != '' && transformedInput.length > parseInt(attrs.ngMaxlength)) {
-                    //    transformedInput = transformedInput.substring(0, attrs.ngMaxlength);
-                    //}
 
                     // Apply to model only when chars where prevented
                     if (transformedInput != inputValue) {
