@@ -28,7 +28,7 @@
             link: function (scope, element, attrs, modelCtrl) {
 
                 // Prepend text
-                if (attrs.bfPrependText != undefined && attrs.bfPrependText != '' && attrs.ngModel != undefined && scope[attrs.ngModel] == '') {
+                if (attrs.bfPrependText != undefined && attrs.bfPrependText != '' && attrs.ngModel != undefined && ( scope[attrs.ngModel] == '' || scope[attrs.ngModel] == undefined ) ) {
                     scope[attrs.ngModel] = attrs.bfPrependText;
                 }
 
