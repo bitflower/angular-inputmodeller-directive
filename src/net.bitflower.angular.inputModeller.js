@@ -15,11 +15,12 @@
     angular.module(moduleName, []);
 
     // bfInputModeller directive
-    // bf-prepend-text: Add text to the beginning of the value
-    // bf-prevent-space: true = no space allowed
-    // bf-upper-case: true = typed chars are trandformed to upper case
-    // bf-max-length: number = because this directive is not compatible with ngMaxLength
-    // bf-min-length: number = because this directive is not compatible with ngMinLength
+    // bf-prepend-text:         Add non-deleteable text to the beginning of the value
+    // bf-prevent-space:        true = no space allowed
+    // bf-upper-case:           true = typed chars are transformed to upper case
+    // bf-lower-case:           true = typed chars are transformed to lower case
+    // bf-max-length:           number = only allow a certain number of chars to be entered
+    // bf-min-length:           number = invalidates form is input char count is lower
     angular.module(moduleName).directive('bfInputModeller', function () {
         return {
             restrict: 'A',
@@ -27,8 +28,8 @@
             link: function (scope, element, attrs, modelCtrl) {
 
                 // Prepend text
-                if (attrs.bfPrependText != undefined && attrs.bfPrependText != '') {
-                    element.val(attrs.bfPrependText);
+                if (attrs.bfPrependText != undefined && attrs.bfPrependText != '' && attrs.ngModel != undefined && scope[attrs.ngModel] == '') {
+                    scope[attrs.ngModel] = attrs.bfPrependText;
                 }
 
                 // modelCtrl = ngModel !
